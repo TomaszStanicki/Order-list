@@ -10,30 +10,33 @@ import java.time.LocalDate;
 @Entity
 public class Store {
 
-@Id
+
+    @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY )
-    private int id;
+    private Long id;
     private LocalDate date;
 
     private String item;
     private String name;
     private String surname;
 
-    private Store() {
-    }
 
-    public Store(int id, String item, String name, String surname, LocalDate date) {
+    public Store(Long id, String item, String name, String surname, LocalDate date) {
         this.id = id;
         this.item = item;
         this.name = name;
         this.surname = surname;
+        this.date= date;
     }
 
-    public int getId() {
+    private Store() {
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

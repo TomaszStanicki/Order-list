@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import pl.stanicki.recruitment.dao.entity.Store;
 
 @Repository
-public interface StoreRepository extends CrudRepository<Store, Integer> {
+public interface StoreRepository extends CrudRepository<Store, Long> {
 }

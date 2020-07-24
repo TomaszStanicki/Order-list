@@ -4,10 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.stanicki.recruitment.dao.entity.Store;
 import pl.stanicki.recruitment.manager.StoreManager;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -20,6 +16,7 @@ public class StoreApi {
 
     @Autowired
     public StoreApi(StoreManager orderList) {
+
         this.orderList = orderList;
     }
 
@@ -30,7 +27,8 @@ public class StoreApi {
     }
 
     @GetMapping
-    public  Optional<Store> etById(@RequestParam int index) {
+    public  Optional<Store> getById(@RequestParam Long index) {
+
         return orderList.findById(index);
     }
 
@@ -42,12 +40,11 @@ public class StoreApi {
 
     @PutMapping
     public Store updatePosition(@RequestBody Store position) {
-
         return orderList.save(position);
     }
 
     @DeleteMapping
-    public void deletePosition(@RequestParam int index) {
+    public void deletePosition(@RequestParam Long index) {
         orderList.deleteById(index);
     }
 
